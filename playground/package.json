@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "nuxt3-vuejs3-logger-playground",
+  "name": "nuxt3-vue3-logger-playground",
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",

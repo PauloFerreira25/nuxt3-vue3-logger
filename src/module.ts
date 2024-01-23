@@ -1,13 +1,14 @@
 import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
-import { LogLevels } from 'vuejs3-logger/dist/enum/log-levels'
-import { ILoggerOptions } from 'vuejs3-logger/dist/interfaces/logger-options'
+import { LogLevels } from './vue3-logger/enum/log-levels'
+import { ILoggerOptions } from './vue3-logger/interfaces/logger-options'
+
 
 // Module options TypeScript interface definition
 export interface ModuleOptions extends ILoggerOptions { }
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'nuxt3-vuejs3-logger',
+    name: 'nuxt3-vue3-logger',
     configKey: 'nuxt3Vuejs3Logger'
   },
   defaults: {

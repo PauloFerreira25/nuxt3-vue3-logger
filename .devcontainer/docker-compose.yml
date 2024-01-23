@@ -4,7 +4,7 @@ x-environment: &default-environment
 
 services:
   nuxt:
-    image: nuxt3-vuejs3-logger
+    image: nuxt3-vue3-logger
     tty: true
     build:
       context: .
