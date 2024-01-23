@@ -1,0 +1,34 @@
+{
+	"name": "nuxt3-vuejs3-logger",
+	"service": "nuxt",
+	"dockerComposeFile": "docker-compose.yml",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+	  "vscode": {
+		"extensions": [
+		  "ms-azuretools.vscode-docker",
+		  "mhutchie.git-graph",
+		  "jebbs.plantuml",
+		  "bradlc.vscode-tailwindcss",
+		  "Vue.volar",
+		  "Vue.vscode-typescript-vue-plugin",
+		  "sdras.vue-vscode-snippets",
+		  "formulahendry.auto-close-tag",
+		  "stylelint.vscode-stylelint",
+		  "formulahendry.auto-rename-tag",
+		  "dbaeumer.vscode-eslint",
+		  "ajmnz.prisma-import",
+		  "ckolkman.vscode-postgres",
+		  "Nuxtr.nuxtr-vscode",
+		  "Nuxtr.nuxt-vscode-extentions",
+		  "esbenp.prettier-vscode"
+		],
+		"unwantedRecommendations": [
+		  "octref.vetur",
+		  "hookyqr.beautify",
+		  "dbaeumer.jshint",
+		  "ms-vscode.vscode-typescript-tslint-plugin"
+		]
+	  }
+	}
+  }

@@ -1,0 +1,24 @@
+version: "3.7"
+x-environment: &default-environment
+  DEBUG: true
+
+services:
+  nuxt:
+    image: nuxt3-vuejs3-logger
+    tty: true
+    build:
+      context: .
+      dockerfile: nuxt/Dockerfile
+    environment:
+      <<: *default-environment
+    ports:
+      - 3000:3000
+    volumes:
+      - ..:/workspace
+    # user: node
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge
