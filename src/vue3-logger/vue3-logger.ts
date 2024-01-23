@@ -1,11 +1,12 @@
-import {LogLevels} from "./enum/log-levels";
-import {ILogger} from "./interfaces/logger";
-import {ILoggerOptions} from "./interfaces/logger-options";
+import { LogLevels } from "./enum/log-levels";
+import { ILogger } from "./interfaces/logger";
+import { ILoggerOptions } from "./interfaces/logger-options";
 
 class VueLogger implements ILogger {
 
     private errorMessage: string = "Provided options for vuejs-logger are not valid.";
     private logLevels: string[] = Object.keys(LogLevels).map((l) => l.toLowerCase());
+
 
     public install(Vue: any, options: ILoggerOptions) {
         options = Object.assign(this.getDefaultOptions(), options);
@@ -41,9 +42,8 @@ class VueLogger implements ILogger {
         return !(options.showMethodName && typeof options.showMethodName !== "boolean");
     }
 
-    private getMethodName(): string {
+    private getMethodName(logger: any): string {
         let error = {} as any;
-
         try {
             throw new Error("");
         } catch (e) {
@@ -53,6 +53,7 @@ class VueLogger implements ILogger {
         if (error.stack === undefined) {
             return "";
         }
+
         let stackTrace = error.stack.split("\n")[3];
         if (/ /.test(stackTrace)) {
             stackTrace = stackTrace.trim().split(" ")[1];
@@ -60,26 +61,47 @@ class VueLogger implements ILogger {
         if (stackTrace && stackTrace.indexOf(".") > -1) {
             stackTrace = stackTrace.split(".")[1];
         }
+
+        if (stackTrace.includes("vue?t=")) {
+            if (logger.initialized && logger.methodName) {
+                return logger.methodName
+            }
+        }
         return stackTrace;
     }
 
+    private setMethodName(name: string, logger: any) {
+        logger['methodName'] = name;
+    }
+
     private initLoggerInstance(options: ILoggerOptions, logLevels: string[]) {
-        const logger = {};
+        const logger = {
+            moduleName: 'unknow',
+            initialized: false
+        };
+        logger['setMethodName'] = (name: string) => this.setMethodName(name, logger)
+        logger['init'] = (name?: string) => {
+            const initLogger = this.initLoggerInstance(options, logLevels);
+            initLogger.initialized = true;
+            if (name) { initLogger.moduleName = name }
+            return initLogger;
+        }
         logLevels.forEach((logLevel) => {
-                if (logLevels.indexOf(logLevel) >= logLevels.indexOf(options.logLevel) && options.isEnabled) {
-                    logger[logLevel] = (...args) => {
-                        const methodName = this.getMethodName();
-                        const methodNamePrefix = options.showMethodName ? methodName + ` ${options.separator} ` : "";
-                        const logLevelPrefix = options.showLogLevel ? logLevel + ` ${options.separator} ` : "";
-                        const formattedArguments = options.stringifyArguments ? args.map((a) => JSON.stringify(a)) : args;
-                        const logMessage = `${logLevelPrefix} ${methodNamePrefix}`;
-                        this.printLogMessage(logLevel, logMessage, options.showConsoleColors, formattedArguments);
-                        return `${logMessage} ${formattedArguments.toString()}`;
-                    };
-                } else {
-                    logger[logLevel] = () => undefined;
-                }
-            },
+            if (logLevels.indexOf(logLevel) >= logLevels.indexOf(options.logLevel) && options.isEnabled) {
+                logger[logLevel] = (...args) => {
+                    const methodName = this.getMethodName(logger);
+                    const methodNamePrefix = options.showMethodName ? methodName + ` ${options.separator} ` : "";
+                    const moduleName = logger.moduleName ? logger.moduleName + ` ${options.separator} ` : ""
+                    const logLevelPrefix = options.showLogLevel ? logLevel + ` ${options.separator} ` : "";
+                    const formattedArguments = options.stringifyArguments ? args.map((a) => JSON.stringify(a)) : args;
+                    const logMessage = `${moduleName}${logLevelPrefix}${methodNamePrefix}`;
+                    this.printLogMessage(logLevel, logMessage, options.showConsoleColors, formattedArguments);
+                    return `${logMessage} ${formattedArguments.toString()}`;
+                };
+            } else {
+                logger[logLevel] = () => undefined;
+            }
+        },
         );
         return logger;
     }
