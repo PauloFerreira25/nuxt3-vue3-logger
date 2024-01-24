@@ -1,12 +1,3 @@
-<!--
-Get your module up and running quickly.
-
-Find and replace all on all files (CMD+SHIFT+F):
-- Name: nuxt3-vue3-logger
-- Package name: nuxt3-vue3-logger
-- Description: nuxt3-vue3-logger
--->
-
 # nuxt3-vue3-logger
 
 [![npm version][npm-version-src]][npm-version-href]
@@ -22,10 +13,7 @@ nuxt3-vue3-logger for doing amazing things.
 
 ## Features
 
-<!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
+Fazer um log
 
 ## Quick Setup
 
@@ -51,6 +39,35 @@ export default defineNuxtConfig({
   ]
 })
 ```
+
+3. Create `nuxt3Vuejs3Logger` on `app.config.ts`
+
+```js
+import { LogLevels } from "nuxt3-vue3-logger/vue3-logger/enum/log-levels";
+
+export default defineAppConfig({
+    nuxt3Vuejs3Logger: {
+        isEnabled: true,
+        logLevel : LogLevels.DEBUG,
+        stringifyArguments : true,
+        showLogLevel : true,
+        showMethodName : true,
+        separator: '|',
+        showConsoleColors: true
+    }
+  })
+```
+4. Usage in `.vue`
+
+```typescript
+<script setup>
+const logger = inject('nuxt3-vue3-logger').init('app');
+onMounted(() => {
+  const log = logger.setMethodName('onMounted')
+  log.debug('test nada', data.a, 123)
+})
+```
+
 
 That's it! You can now use nuxt3-vue3-logger in your Nuxt app ✨
 
