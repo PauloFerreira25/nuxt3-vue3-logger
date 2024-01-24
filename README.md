@@ -98,13 +98,13 @@ npm run release
 ```
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/nuxt3-vue3-logger/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[npm-version-src]: https://img.shields.io/npm/v/@pauloferreira25/nuxt3-vue3-logger/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
 [npm-version-href]: https://npmjs.com/package/@pauloferreira25/nuxt3-vue3-logger
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt3-vue3-logger.svg?style=flat&colorA=18181B&colorB=28CF8D
+[npm-downloads-src]: https://img.shields.io/npm/dm/@pauloferreira25/nuxt3-vue3-logger.svg?style=flat&colorA=18181B&colorB=28CF8D
 [npm-downloads-href]: https://npmjs.com/package/@pauloferreira25/nuxt3-vue3-logger
 
-[license-src]: https://img.shields.io/npm/l/nuxt3-vue3-logger.svg?style=flat&colorA=18181B&colorB=28CF8D
+[license-src]: https://img.shields.io/npm/l/@pauloferreira25/nuxt3-vue3-logger.svg?style=flat&colorA=18181B&colorB=28CF8D
 [license-href]: https://npmjs.com/package/@pauloferreira25/nuxt3-vue3-logger
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
