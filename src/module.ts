@@ -29,6 +29,8 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
+    const vue3Logger = resolver.resolve('runtime/vue3-logger');
+    nuxt.options.alias['#nuxt3-vue3-logger'] = vue3Logger;
 
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
     addPlugin({
@@ -36,5 +38,6 @@ export default defineNuxtModule<ModuleOptions>({
       ssr: false,
     })
     addImportsDir(resolver.resolve('./runtime/vue3-logger'))
+
   }
 })

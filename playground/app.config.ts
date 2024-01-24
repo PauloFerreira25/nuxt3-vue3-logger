@@ -1,4 +1,4 @@
-import { LogLevels } from "../src/runtime/vue3-logger/enum/log-levels";
+import { LogLevels } from "#nuxt3-vue3-logger";
 
 
 export default defineAppConfig({
