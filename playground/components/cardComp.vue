@@ -5,7 +5,7 @@
 </template>
 
 <script  setup>
-const logger = inject('nuxt3-vue3-logger').init('CardComp');
+const logger = inject('nuxt3-vue3-logger');
 
 const data = reactive({
     a: 'a',
@@ -14,13 +14,15 @@ const data = reactive({
 })
 
 onMounted(() => {
-    logger.setMethodName('onMounted - Card');
-    logger.debug('card');
+    const log = logger.init('CardComp', 'onMounted - Card');
+    log.debug('card');
     externalFunction()
+    log.debug('card2');
 })
 
 const externalFunction = () => {
-    logger.debug('log from function outside component.');
+    const log = logger.init('CardComp', 'externalFunction');
+    log.debug('log from function outside component.');
 }
 </script>
 

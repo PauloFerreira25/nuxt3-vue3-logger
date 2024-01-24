@@ -18,16 +18,17 @@ const data = reactive({
 })
 
 onMounted(() => {
-  logger.debug('test nada', data.a, 123)
-  logger.debug('test', data.a, 123)
-  logger.setMethodName('onMounted');
-  logger.debug('onMounted');
-  logger.debug('test', data.a, 123)
-  logger.info('test', data.b)
-  logger.info('test', data.c)
-  logger.warn('test')
-  logger.error('test')
-  logger.fatal('test')
+  const log = logger.setMethodName('onMounted')
+  log.debug('test nada', data.a, 123)
+  log.debug('test', data.a, 123)
+  log.setMethodName('onMounted');
+  log.debug('onMounted');
+  log.debug('test', data.a, 123)
+  log.info('test', data.b)
+  log.info('test', data.c)
+  log.warn('test')
+  log.error('test')
+  log.fatal('test')
   externalFunction()
 })
 
