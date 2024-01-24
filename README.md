@@ -66,6 +66,7 @@ onMounted(() => {
   const log = logger.setMethodName('onMounted')
   log.debug('test nada', data.a, 123)
 })
+</script>
 ```
 
 
