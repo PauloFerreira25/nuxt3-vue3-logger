@@ -59,7 +59,7 @@ export default defineAppConfig({
 ```
 4. Usage in `.vue`
 
-```typescript
+```html
 <script setup>
 const logger = inject('nuxt3-vue3-logger').init('app');
 onMounted(() => {
