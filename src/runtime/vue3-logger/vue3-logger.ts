@@ -1,7 +1,7 @@
 import { Logger } from "./Logger";
 import { LogLevels } from "./enum/log-levels";
-import { ILogger } from "./interfaces/logger";
-import { ILoggerOptions } from "./interfaces/logger-options";
+import type { ILogger } from "./interfaces/logger";
+import type { ILoggerOptions } from "./interfaces/logger-options";
 
 class VueLogger implements ILogger {
 

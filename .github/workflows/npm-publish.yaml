@@ -29,7 +29,7 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: npm install
-      - run: npm run dev:build
+      - run: npm run build
       
       # Update the version in package.json
       - name: Update Version

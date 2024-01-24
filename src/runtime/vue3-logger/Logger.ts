@@ -1,9 +1,9 @@
-import { ILoggerOptions } from "./interfaces/logger-options"
+import type { ILoggerOptions } from "./interfaces/logger-options"
 
 export class Logger {
-    moduleName = undefined
+    moduleName?: string = undefined
     initialized = false
-    methodName = undefined
+    methodName?: string = undefined
     options: ILoggerOptions
     logLevels: string[]
 
@@ -14,7 +14,7 @@ export class Logger {
         this.logLevels = logLevels
         logLevels.forEach((logLevel) => {
             if (logLevels.indexOf(logLevel) >= logLevels.indexOf(this.options.logLevel) && this.options.isEnabled) {
-                this[logLevel] = (...args) => this.log(logLevel, ...args);
+                this[logLevel] = (...args: any) => this.log(logLevel, ...args);
             } else {
                 this[logLevel] = () => undefined;
             }
@@ -44,7 +44,7 @@ export class Logger {
         return 'unknown';
     }
 
-    private log(logLevel, ...args) {
+    private log(logLevel: string, ...args: any[]) {
         const methodName = this.getMethodName();
         const methodNamePrefix = this.options.showMethodName ? `method:${methodName}` + ` ${this.options.separator}` : "";
         const moduleName = this.moduleName ? `module:${this.moduleName}` + ` ${this.options.separator} ` : "";

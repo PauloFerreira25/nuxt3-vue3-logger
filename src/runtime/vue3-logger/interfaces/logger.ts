@@ -1,4 +1,4 @@
-import {ILoggerOptions} from "./logger-options";
+import type { ILoggerOptions } from "./logger-options";
 
 export interface ILogger {
     install(Vue: any, options: ILoggerOptions);
