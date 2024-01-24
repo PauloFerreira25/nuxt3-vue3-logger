@@ -1,4 +1,4 @@
-import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, addImportsDir, createResolver } from '@nuxt/kit'
 import { LogLevels } from './runtime/vue3-logger/enum/log-levels'
 import type { ILoggerOptions } from './runtime/vue3-logger/interfaces/logger-options'
 
@@ -9,7 +9,7 @@ export interface ModuleOptions extends ILoggerOptions { }
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt3-vue3-logger',
-    configKey: 'nuxt3Vuejs3Logger'
+    configKey: 'nuxt3Vue3Logger'
   },
   defaults: {
     // optional : defaults to true if not specified
@@ -35,5 +35,6 @@ export default defineNuxtModule<ModuleOptions>({
       src: resolver.resolve('./runtime/plugin'),
       ssr: false,
     })
+    addImportsDir(resolver.resolve('./runtime/vue3-logger'))
   }
 })

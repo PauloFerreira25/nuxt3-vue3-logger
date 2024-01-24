@@ -2,7 +2,7 @@ import { LogLevels } from "../src/runtime/vue3-logger/enum/log-levels";
 
 
 export default defineAppConfig({
-    nuxt3Vuejs3Logger: {
+    nuxt3Vue3Logger: {
         isEnabled: true,
         logLevel : LogLevels.DEBUG,
         stringifyArguments : true,
