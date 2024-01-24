@@ -1,8 +1,11 @@
 {
-  "name": "nuxt3-vue3-logger",
+  "name": "@pauloferreira25/nuxt3-vue3-logger",
   "version": "1.0.0",
   "description": "nuxt3-vue3-logger",
-  "repository": "https://github.com/PauloFerreira25/nuxt3-vue3-logger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PauloFerreira25/nuxt3-vue3-logger.git"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -41,5 +44,13 @@
     "eslint": "^8.56.0",
     "nuxt": "^3.9.3",
     "vitest": "^1.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/PauloFerreira25/nuxt3-vue3-logger/issues"
+  },
+  "homepage": "https://github.com/PauloFerreira25/nuxt3-vue3-logger#readme",
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }
