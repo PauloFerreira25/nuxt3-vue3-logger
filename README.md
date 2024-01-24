@@ -8,8 +8,7 @@
 nuxt3-vue3-logger for doing amazing things.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt3-vue3-logger?file=playground%2Fapp.vue) -->
-<!-- - [📖 &nbsp;Documentation](https://example.com) -->
+
 
 ## Features
 
@@ -100,13 +99,13 @@ npm run release
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/nuxt3-vue3-logger/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-version-href]: https://npmjs.com/package/nuxt3-vue3-logger
+[npm-version-href]: https://npmjs.com/package/@pauloferreira25/nuxt3-vue3-logger
 
 [npm-downloads-src]: https://img.shields.io/npm/dm/nuxt3-vue3-logger.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-downloads-href]: https://npmjs.com/package/nuxt3-vue3-logger
+[npm-downloads-href]: https://npmjs.com/package/@pauloferreira25/nuxt3-vue3-logger
 
 [license-src]: https://img.shields.io/npm/l/nuxt3-vue3-logger.svg?style=flat&colorA=18181B&colorB=28CF8D
-[license-href]: https://npmjs.com/package/nuxt3-vue3-logger
+[license-href]: https://npmjs.com/package/@pauloferreira25/nuxt3-vue3-logger
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
