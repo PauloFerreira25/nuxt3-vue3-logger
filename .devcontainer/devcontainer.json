@@ -3,6 +3,7 @@
 	"service": "nuxt",
 	"dockerComposeFile": "docker-compose.yml",
 	"workspaceFolder": "/workspace",
+	"remoteUser": "node",
 	"customizations": {
 	  "vscode": {
 		"extensions": [

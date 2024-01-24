@@ -1,6 +1,7 @@
 /**
  * Augment the typings of Vue.js
  */
+// eslint-disable-next-line vue/prefer-import-from-vue, @typescript-eslint/no-unused-vars
 import vue from '@vue/runtime-core';
 import VueLogger from '../../index';
 

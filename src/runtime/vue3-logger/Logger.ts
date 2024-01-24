@@ -1,5 +1,4 @@
-import { LogLevels } from "./vue3-logger/enum/log-levels"
-import { ILoggerOptions } from "./vue3-logger/interfaces/logger-options"
+import { ILoggerOptions } from "./interfaces/logger-options"
 
 export class Logger {
     moduleName = undefined

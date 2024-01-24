@@ -1,4 +1,4 @@
-import { Logger } from "../Logger";
+import { Logger } from "./Logger";
 import { LogLevels } from "./enum/log-levels";
 import { ILogger } from "./interfaces/logger";
 import { ILoggerOptions } from "./interfaces/logger-options";

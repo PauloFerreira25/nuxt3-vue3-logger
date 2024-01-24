@@ -1,6 +1,6 @@
 import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
-import { LogLevels } from './vue3-logger/enum/log-levels'
-import { ILoggerOptions } from './vue3-logger/interfaces/logger-options'
+import { LogLevels } from './runtime/vue3-logger/enum/log-levels'
+import { ILoggerOptions } from './runtime/vue3-logger/interfaces/logger-options'
 
 
 // Module options TypeScript interface definition

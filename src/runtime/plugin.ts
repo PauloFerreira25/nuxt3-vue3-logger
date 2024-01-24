@@ -1,5 +1,5 @@
 import { defineNuxtPlugin, useAppConfig, useNuxtApp } from '#imports'
-import VueLogger from '../vue3-logger';
+import VueLogger from './vue3-logger';
 
 export default defineNuxtPlugin(() => {
   const appConfig = useAppConfig()
