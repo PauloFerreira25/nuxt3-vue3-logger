@@ -42,7 +42,7 @@ export default defineNuxtConfig({
 3. Create `nuxt3Vue3Logger` on `app.config.ts`
 
 ```js
-import { LogLevels } from "nuxt3-vue3-logger/vue3-logger/enum/log-levels";
+import { LogLevels } from "#nuxt3-vue3-logger";
 
 export default defineAppConfig({
     nuxt3Vue3Logger: {
