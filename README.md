@@ -29,12 +29,12 @@ yarn add --dev nuxt3-vue3-logger
 npm install --save-dev nuxt3-vue3-logger
 ```
 
-2. Add `nuxt3-vue3-logger` to the `modules` section of `nuxt.config.ts`
+2. Add `@pauloferreira25/nuxt3-vue3-logger` to the `modules` section of `nuxt.config.ts`
 
 ```js
 export default defineNuxtConfig({
   modules: [
-    'nuxt3-vue3-logger'
+    '@pauloferreira25/nuxt3-vue3-logger'
   ]
 })
 ```
