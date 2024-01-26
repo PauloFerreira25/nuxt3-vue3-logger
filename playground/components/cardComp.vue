@@ -1,17 +1,12 @@
 <template>
-    <div>
-        Card
-    </div>
+  <div>
+    Card
+  </div>
 </template>
 
-<script  setup>
-const logger = inject('nuxt3-vue3-logger');
-
-const data = reactive({
-    a: 'a',
-    b: 'b',
-    c: { key: 'value' }
-})
+<script setup lang="ts">
+import { Logger } from '#nuxt3-vue3-logger';
+const logger = inject<Logger>('nuxt3-vue3-logger', new Logger);
 
 onMounted(() => {
     const log = logger.init('CardComp', 'onMounted - Card');

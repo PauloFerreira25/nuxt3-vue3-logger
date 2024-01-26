@@ -1,19 +1,17 @@
-import { Logger } from "./Logger";
-import { LogLevels } from "./enum/log-levels";
+import { Logger, getDefaultOptions } from "./Logger";
 import type { ILogger } from "./interfaces/logger";
 import type { ILoggerOptions } from "./interfaces/logger-options";
 
 class VueLogger implements ILogger {
 
     private errorMessage: string = "Provided options for nuxt3-vue3-logger are not valid.";
-    private logLevels: string[] = Object.keys(LogLevels).map((l) => l.toLowerCase());
 
 
     public install(Vue: any, options: ILoggerOptions) {
-        options = Object.assign(this.getDefaultOptions(), options);
+        options = Object.assign(getDefaultOptions(), options);
 
-        if (this.isValidOptions(options, this.logLevels)) {
-            Vue.$log = this.initLoggerInstance(options, this.logLevels);
+        if (this.isValidOptions(options)) {
+            Vue.$log = this.initLoggerInstance(options);
             Vue.provide('nuxt3-vue3-logger', Vue.$log);
             Vue.config.globalProperties.$log = Vue.$log;
         } else {
@@ -21,10 +19,7 @@ class VueLogger implements ILogger {
         }
     }
 
-    public isValidOptions(options: ILoggerOptions, logLevels: string[]): boolean {
-        if (!(options.logLevel && typeof options.logLevel === "string" && logLevels.indexOf(options.logLevel) > -1)) {
-            return false;
-        }
+    public isValidOptions(options: ILoggerOptions): boolean {
         if (options.stringifyArguments && typeof options.stringifyArguments !== "boolean") {
             return false;
         }
@@ -43,21 +38,13 @@ class VueLogger implements ILogger {
         return !(options.showMethodName && typeof options.showMethodName !== "boolean");
     }
 
-    private initLoggerInstance(options: ILoggerOptions, logLevels: string[]) {
-        return new Logger(options, logLevels);
+    private initLoggerInstance(options: ILoggerOptions) {
+        const logger = new Logger();
+        logger.setOptions(options);
+        return logger;
     }
 
-    private getDefaultOptions(): ILoggerOptions {
-        return {
-            isEnabled: true,
-            logLevel: LogLevels.DEBUG,
-            separator: "|",
-            showConsoleColors: false,
-            showLogLevel: false,
-            showMethodName: false,
-            stringifyArguments: false,
-        };
-    }
+
 }
 
 export default new VueLogger();

@@ -4,8 +4,9 @@
     </div>
 </template>
 
-<script  setup>
-const logger = inject('nuxt3-vue3-logger');
+<script setup lang="ts">
+import { Logger } from '#nuxt3-vue3-logger';
+const logger = new Logger()
 
 const data = reactive({
     a: 'a',
