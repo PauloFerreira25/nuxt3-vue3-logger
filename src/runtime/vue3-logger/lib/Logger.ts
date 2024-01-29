@@ -54,7 +54,7 @@ export class Logger implements Log {
     }
 
     public setMethodName(name: string) {
-        const log = this.init()
+        const log = this.init(this.moduleName)
         log.methodName = name
         return log
     }
