@@ -27,22 +27,22 @@ export class Logger implements Log {
     }
 
     public debug(...args: any[]) {
-        this.log(LogLevels.DEBUG, args)
+        this.log(LogLevels.DEBUG, ...args)
     }
     public info(...args: any[]) {
-        this.log(LogLevels.INFO, args)
+        this.log(LogLevels.INFO, ...args)
 
     }
     public warn(...args: any[]) {
-        this.log(LogLevels.WARN, args)
+        this.log(LogLevels.WARN, ...args)
 
     }
     public error(...args: any[]) {
-        this.log(LogLevels.ERROR, args)
+        this.log(LogLevels.ERROR, ...args)
 
     }
     public fatal(...args: any[]) {
-        this.log(LogLevels.FATAL, args)
+        this.log(LogLevels.FATAL, ...args)
     }
 
     public init(name?: string, method?: string) {
