@@ -1,9 +1,6 @@
-import { LogLevels } from "./enum/log-levels"
-import type { ILoggerOptions } from "./interfaces/logger-options"
-
-type LoggerMethods = {
-    [key in LogLevels]: (...args: any) => void;
-}
+import { LogLevels } from "../enum/log-levels"
+import type { ILoggerOptions } from "../interfaces/logger-options"
+import type { Log } from "./types";
 
 export const getDefaultOptions = () => {
     return {
@@ -19,7 +16,7 @@ export const getDefaultOptions = () => {
 
 let globalOptions: ILoggerOptions = getDefaultOptions()
 
-export class Logger implements LoggerMethods {
+export class Logger implements Log {
     moduleName?: string = undefined
     initialized = false
     methodName?: string = undefined

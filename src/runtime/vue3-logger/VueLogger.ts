@@ -1,4 +1,4 @@
-import { Logger, getDefaultOptions } from "./Logger";
+import { Logger, getDefaultOptions } from "./lib/Logger";
 import type { ILogger } from "./interfaces/logger";
 import type { ILoggerOptions } from "./interfaces/logger-options";
 

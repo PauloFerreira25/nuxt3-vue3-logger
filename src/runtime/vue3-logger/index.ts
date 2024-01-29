@@ -1,4 +1,4 @@
 import VueLogger from "./VueLogger";
+export { Logger } from "./lib/Logger"
 export { LogLevels } from "./enum/log-levels"
-export { Logger } from "./Logger";
 export default VueLogger;
